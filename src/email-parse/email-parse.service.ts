@@ -74,7 +74,12 @@ export class EmailParseService implements OnModuleDestroy {
       })) as any;
 
       if (!message || message === false || !message.headers) {
-        return [];
+        return {
+        fromEmail: "",
+        toEmail: "",
+        servers: [],
+        ESP: "",
+      };
       }
 
       const headersText = message.headers.toString();
